@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class ChipotleJrPlus {
@@ -13,9 +14,6 @@ public class ChipotleJrPlus {
         burritoRice[1] = "brown rice";
         burritoRice[2] = "no rice";
         burritoRice[3] = "all rice";
-        String ranRice = burritoRice[r.nextInt(4)];
-
-
 
         String burritoMeat[] = new String[8];
         burritoMeat[0] = "chicken";
@@ -26,14 +24,12 @@ public class ChipotleJrPlus {
         burritoMeat[5] = "veggie meat";
         burritoMeat[6] = "no meat";
         burritoMeat[7] = "all meats";
-        String ranMeat = burritoMeat[r.nextInt(8)];
 
         String burritoBeans[] = new String[4];
         burritoBeans[0] = "pinto beans";
         burritoBeans[1] = "black beans";
         burritoBeans[2] = "no beans";
         burritoBeans[3] = "all beans";
-        String ranBeans = burritoBeans[r.nextInt(4)];
 
         String burritoSalsa[] = new String[5];
         burritoSalsa[0] = "mild salsa";
@@ -41,34 +37,28 @@ public class ChipotleJrPlus {
         burritoSalsa[2] = "hot salsa";
         burritoSalsa[3] = "no salsa";
         burritoSalsa[4] = "all salsas";
-        String ranSalsa = burritoSalsa[r.nextInt(5)];
 
         String burritoVeggies[] = new String[4];
         burritoVeggies[0] = "lettuce";
         burritoVeggies[1] = "fajita veggies";
         burritoVeggies[2] = "no veggies";
         burritoVeggies[3] = "all veggies";
-        String ranVeggies = burritoVeggies[r.nextInt(4)];
 
         String burritoCheese[] = new String[2];
         burritoCheese[0] = "cheese";
         burritoCheese[1] = "no cheese";
-        String ranCheese = burritoCheese[r.nextInt(2)];
 
         String burritoGuac[] = new String[2];
         burritoGuac[0] = "guac";
         burritoGuac[1] = "no guac";
-        String ranGuac = burritoGuac[r.nextInt(2)];
 
         String burritoQueso[] = new String[2];
         burritoQueso[0] = "queso";
         burritoQueso[1] = "no queso";
-        String ranQueso = burritoQueso[r.nextInt(2)];
 
         String burritoSourcream[] = new String[2];
         burritoSourcream[0] = "sour cream";
         burritoSourcream[1] = "no sour cream";
-        String ranSourcream = burritoSourcream[r.nextInt(2)];
 
         //Initiate empty array list to populate with the random ingredients.
         ArrayList<String> ranBurrito = new ArrayList<>();
@@ -78,6 +68,15 @@ public class ChipotleJrPlus {
             //Print burrito #
             System.out.println("Burrito "+(i+1)+"/25: ");
             //Random ingredients.
+            String ranRice = burritoRice[r.nextInt(4)];
+            String ranMeat = burritoMeat[r.nextInt(8)];
+            String ranBeans = burritoBeans[r.nextInt(4)];
+            String ranSalsa = burritoSalsa[r.nextInt(5)];
+            String ranVeggies = burritoVeggies[r.nextInt(4)];
+            String ranCheese = burritoCheese[r.nextInt(2)];
+            String ranGuac = burritoGuac[r.nextInt(2)];
+            String ranQueso = burritoQueso[r.nextInt(2)];
+            String ranSourcream = burritoSourcream[r.nextInt(2)];
             //With Method public static ArrayList burritoConstruction
             burritoMethod(ranBurrito, ranRice, ranMeat, ranBeans, ranSalsa, ranVeggies, ranCheese, ranGuac, ranQueso, ranSourcream);
             //Without Method
@@ -99,6 +98,7 @@ public class ChipotleJrPlus {
             for(j=0; j<ranIngredients; j++){
                 //r.nextInt(ingredientsRemaining) to generate a random number from 0-8(number of types of ingredients).
                 pickIngredient = r.nextInt(ingredientsRemaining);
+                //Challenge #2: Count the number of times each ingredient was used.
                 //.get(pickIngredient) and .remove(pickIngredient) to return an ingredient and to prevent that type from being chosen again.
                 System.out.println(">"+ranBurrito.get(pickIngredient));
                 //condition for adding 50 cents to the price of the burrito
@@ -126,4 +126,14 @@ public class ChipotleJrPlus {
         ranBurrito.add(sourcream);
 
     return ranBurrito;}
+//    public static HashMap ingCount(ArrayList<String> ranBurrito, int pickIngredient){
+//        HashMap<String, Integer> ingCountHashMap = new HashMap<>();
+//        for (int i = 0; i<ranBurrito.size(); i++){
+//            if(!HashMap.containsKey(ranBurrito.get(pickIngredient))){
+//
+//            }
+//        }
+//
+//    }
+
 }
